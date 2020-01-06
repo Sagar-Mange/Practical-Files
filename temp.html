@@ -1,0 +1,450 @@
+<html>
+<body>
+<p id='temp' class="example"> click here </p>
+
+<div id="abc">
+    <p class=temp >HIIIII</p>
+</div> 
+
+<button onclick="myFunc()"> OK </button>
+<div id="def"></div>
+
+
+</body>
+
+
+<script>
+
+    let array=["D","E","T","A","I","L"]
+    let obj={
+        
+        f_name:'Sagar',
+        l_name:'Mange',
+        address:'Rajkot',
+        Job:'Software Devloper',
+        val:'A'
+            
+            }
+
+
+console.log(array);
+console.log(array[1]);
+
+for(let inx in array) // both index and their values
+{
+console.log(inx,array[inx]);
+}
+
+
+for(let [val] of array) // not showing Index in array
+{
+console.log(val);
+}
+
+for(let [inx,val] of array.entries()) // both index and their values
+{
+console.log(inx,val);
+}
+
+let array1 = array.findIndex((val, inx) => {
+           console.log(val,inx)    
+         });                                // Arrow Function
+
+console.log(obj.f_name,obj.l_name);
+
+let val = "f_name";          
+//console.log(obj[val]);
+console.log(obj["val"]);
+console.log(val);
+console.log(obj.hasOwnProperty(val));
+
+console.log(obj['address'].indexOf('j')); // index of j in keyvalue of address
+
+let array3 = ["Sagar","Mange","BE","1999","BHGCET"]
+//console.log(array3.splice(1,4));
+//console.log(array3.splice(3));
+array3.push('28-8');
+console.log(array3);
+
+console.log(Array.isArray(obj));
+
+
+let array4=["a","b","c","d"]
+let array5=["e","f","g","h"]
+let array6=[1,2,3,4]
+
+let a=array4.concat(array5); // concating
+console.log(a);
+
+let b=array4.copyWithin(2,0); // copy 
+console.log(b);
+
+let c=array4.length; // length of array
+console.log(c);
+
+let d=array.fill("i"); // fill full array with same value
+console.log(d);
+
+let e=Array.from("abcd"); // get array by giving string input
+console.log(e);
+
+let f=array4.includes("b"); // input is in array or not
+console.log(f);
+
+let g=array4.join(); // join the array elements into a string
+console.log(g);
+
+let h=array4.keys(); // returns an Array Iterator object with the keys of an array
+for (let x of h)
+         { console.log(h);}
+
+let i=array6.reduceRight(myfunction); // reduce array element from right
+function myfunction(y,z)
+{
+    return y+z
+}
+console.log(i);
+
+let j=array6.some(myfunction1); // finding answer in your array and return boolean value
+console.log(j);
+function myfunction1()
+{
+    return 1+2;
+    
+}
+
+let k=array4.sort(); // sorting (default=assending)
+console.log(k);
+
+
+let array7=[{
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "address": {
+      "street": "Douglas Extension",
+      "suite": "Suite 847",
+      "city": "McKenziehaven",
+      "zipcode": "59590-4157",
+      "geo": {
+        "lat": "-68.6102",
+        "lng": "-47.0653"
+      }
+    },
+    "phone": "1-463-123-4447",
+    "website": "ramiro.info",
+    "company": {
+      "name": "Romaguera-Jacobson",
+      "catchPhrase": "Face to face bifurcated interface",
+      "bs": "e-enable strategic applications"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "address": {
+      "street": "Hoeger Mall",
+      "suite": "Apt. 692",
+      "city": "South Elvis",
+      "zipcode": "53919-4257",
+      "geo": {
+        "lat": "29.4572",
+        "lng": "-164.2990"
+      }
+    },
+    "phone": "493-170-9623 x156",
+    "website": "kale.biz",
+    "company": {
+      "name": "Robel-Corkery",
+      "catchPhrase": "Multi-tiered zero tolerance productivity",
+      "bs": "transition cutting-edge web services"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    "email": "Lucio_Hettinger@annie.ca",
+    "address": {
+      "street": "Skiles Walks",
+      "suite": "Suite 351",
+      "city": "Roscoeview",
+      "zipcode": "33263",
+      "geo": {
+        "lat": "-31.8129",
+        "lng": "62.5342"
+      }
+    },
+    "phone": "(254)954-1289",
+    "website": "demarco.info",
+    "company": {
+      "name": "Keebler LLC",
+      "catchPhrase": "User-centric fault-tolerant solution",
+      "bs": "revolutionize end-to-end systems"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+    "username": "Leopoldo_Corkery",
+    "email": "Karley_Dach@jasper.info",
+    "address": {
+      "street": "Norberto Crossing",
+      "suite": "Apt. 950",
+      "city": "South Christy",
+      "zipcode": "23505-1337",
+      "geo": {
+        "lat": "-71.4197",
+        "lng": "71.7478"
+      }
+    },
+    "phone": "1-477-935-8478 x6430",
+    "website": "ola.org",
+    "company": {
+      "name": "Considine-Lockman",
+      "catchPhrase": "Synchronised bottom-line interface",
+      "bs": "e-enable innovative applications"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "address": {
+      "street": "Rex Trail",
+      "suite": "Suite 280",
+      "city": "Howemouth",
+      "zipcode": "58804-1099",
+      "geo": {
+        "lat": "24.8918",
+        "lng": "21.8984"
+      }
+    },
+    "phone": "210.067.6132",
+    "website": "elvis.io",
+    "company": {
+      "name": "Johns Group",
+      "catchPhrase": "Configurable multimedia task-force",
+      "bs": "generate enterprise e-tailers"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "username": "Maxime_Nienow",
+    "email": "Sherwood@rosamond.me",
+    "address": {
+      "street": "Ellsworth Summit",
+      "suite": "Suite 729",
+      "city": "Aliyaview",
+      "zipcode": "45169",
+      "geo": {
+        "lat": "-14.3990",
+        "lng": "-120.7677"
+      }
+    },
+    "phone": "586.493.6943 x140",
+    "website": "jacynthe.com",
+    "company": {
+      "name": "Abernathy Group",
+      "catchPhrase": "Implemented secondary concept",
+      "bs": "e-enable extensible e-tailers"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "username": "Delphine",
+    "email": "Chaim_McDermott@dana.io",
+    "address": {
+      "street": "Dayna Park",
+      "suite": "Suite 449",
+      "city": "Bartholomebury",
+      "zipcode": "76495-3109",
+      "geo": {
+        "lat": "24.6463",
+        "lng": "-168.8889"
+      }
+    },
+    "phone": "(775)976-6794 x41206",
+    "website": "conrad.com",
+    "company": {
+      "name": "Yost and Sons",
+      "catchPhrase": "Switchable contextually-based project",
+      "bs": "aggregate real-time technologies"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "address": {
+      "street": "Kattie Turnpike",
+      "suite": "Suite 198",
+      "city": "Lebsackbury",
+      "zipcode": "31428-2261",
+      "geo": {
+        "lat": "-38.2386",
+        "lng": "57.2232"
+      }
+    },
+    "phone": "024-648-3804",
+    "website": "ambrose.net",
+    "company": {
+      "name": "Hoeger LLC",
+      "catchPhrase": "Centralized empowering task-force",
+      "bs": "target end-to-end models"
+    }
+  }
+  ]
+
+  for (let inx in array7)       // index plus value 
+  { console.log(inx,array7[inx])} 
+
+  for (let inx of array7)       // value only
+  console.log(inx)
+
+  for (let [inx,val] of array7.entries())  // index by for of
+  console.log(inx)
+
+  for (let [inx,val] of array7.entries())  // index and value by for of
+  console.log(inx,val)
+
+  console.log(array7.constructor) // return f Array()
+
+  function function2(s){
+  return s>0}
+  console.log(array6.every(function2)) // check every elements in array
+
+  console.log(array6,array6.map(Math.sqrt)) // create new array
+
+  console.log(array7[9]) // value of nth index
+  
+  for (let x of array7)
+  console.log(x.id)
+
+  console.log(array7[9].name,array7[9].id,array7[9].address.geo)
+
+  // console.log(array7.copyWithin(5,2,9))  ---> copywithin
+
+let y=array7.keys();
+console.log(y)
+
+
+//console.log(array7.includes('Leanne Graham'))
+console.log(array7.filter(array7 => (array7.name === "Leanne Graham")))
+
+
+
+//   ----------------------------------->        3-1-2020        <------------------------------------------   
+
+
+/*let total =0;
+var numbers = [];
+var size = 50; //Maximum Array size
+
+for(var r=0; r<size; r++) {
+	
+		numbers[r] = +prompt('Enter Element ' + (r+1));
+        if(!numbers[r]) break;
+}
+ console.log(numbers);
+
+
+total=numbers.reduce((a,b) => {return a+b;} , 0);
+console.log(total);
+
+*/
+console.log(document.getElementById('temp').innerHTML)
+console.log(document.getElementById('temp').innerHTML="Hello World")
+
+console.log(document.getElementsByTagName('P').innerHTML) // undefined
+console.log(document.getElementsByTagName('P').innerHTML='Hello World')
+//console.log(document.getElementsByTagName('P')[1].innerHTML="Hello World") // can not set property of undefined value
+
+console.log(document.getElementsByClassName('example')[0].innerHTML="Hello World")
+
+let x=document.querySelector('#abc');
+console.log(x);
+
+function myFunc()
+{
+document.querySelector("div>p").style.backgroundColor="Red";
+}
+
+function mySum(a,b,c)  // javascript does not support method overloading
+{
+  return a+b+c;
+}
+function mySum(a,b)
+{
+  return a+b;
+}
+
+console.log(mySum(1,2));
+console.log(mySum(1,2,3));
+
+if(array6 && array6.length==4)
+console.log("hello")
+
+
+
+
+
+
+
+
+</script>
+</html>
