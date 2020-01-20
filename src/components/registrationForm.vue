@@ -52,7 +52,7 @@
         <div class="temp">
         <label for="password" class="label">Password</label>
         <input class="input" type="password" id="password" v-model="user.password">
-        <p class="error" v-if="!passwordIsValid">* Password Field is Invalid</p>
+        <p class="error" v-if="!passwordIsValid">* Password Field is Invalid because minimum 7 characters required</p>
         </div>
 
         <div class="temp">

@@ -17,7 +17,7 @@ export default {
   methods: {
     hello: function () {
       console.log('Method called this times', this.message = Date())
-      return this.message
+      // return this.message
     }
   }
 }
