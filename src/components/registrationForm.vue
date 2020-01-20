@@ -1,24 +1,52 @@
 <template>
 <div>
+<div :style="myStyle">
   <form id="validated-form">
         <div class="temp">
         <h1 style="padding-top:2%">REGISTRATION FORM</h1>
         <hr><br>
         <label for="name" class="label">Your Name</label>
-        <input class="input" type="text" id="name" v-model="user.name">
+        <input class="input" type="text" id="name" v-model.trim="user.name">
         <p class="error" v-if="!nameIsValid">* Name Field is Invalid</p>
         </div>
 
         <div class="temp">
         <label for="email" class="label">Your Email</label>
-        <input class="input" type="email" id="email" v-model="user.email">
+        <input class="input" type="email" id="email" v-model.trim="user.email">
         <p class="error" v-if="!emailIsValid">* Email Field is Invalid</p>
         </div>
 
         <div class="temp">
         <label for="mobile" class="label">Mobile No.</label>
-        <input class="input" number v-model="user.mobile" type="tel" id="mobile">
+        <input class="input" number v-model.trim="user.mobile" type="tel" id="mobile">
         <p class="error" v-if="!mobileIsValid">* Mobile No.is Invalid</p>
+        </div>
+
+        <div class="temp">
+        <h2 style="padding-top:10px;font-size: 23px;font-family:sans-serif">Task Done</h2>
+
+        <input type="checkbox" id="checkbox" value="Task 1" v-model="user.checkedNames">
+        <label for="checkbox" id="hobby">Task 1</label>
+
+        <input type="checkbox" id="checkbox" value="Task 2" v-model="user.checkedNames">
+        <label for="checkbox" id="hobby">Task 2</label>
+
+        <input type="checkbox" id="checkbox" value="Task 3" v-model="user.checkedNames">
+        <label for="checkbox" id="hobby">Task 3</label>
+
+        <input type="checkbox" id="checkbox" value="Task 4" v-model="user.checkedNames">
+        <label for="checkbox" id="hobby">Task 4</label>
+
+        <input type="checkbox" id="checkbox" value="Task 5" v-model="user.checkedNames">
+        <label for="checkbox" id="hobby">Task 5</label>
+        </div>
+
+        <div class="temp">
+        <h2 style="padding-top:10px;font-size: 23px;font-family:sans-serif">Gender</h2>
+        <input type="radio" id="gender" value="Male" v-model="user.picked">
+        <label style="padding-right: 1.2%; font-size:20px" for="one">Male</label>
+        <input type="radio" id="gender" value="Female" v-model="user.picked">
+        <label style="font-size:20px" for="two">Female</label>
         </div>
 
         <div class="temp">
@@ -32,10 +60,14 @@
         </div>
     </form>
     <div style="display:none" id="preview">
-        <p id="preview1"> Your Name: {{user.name}}</p>
-        <p id="preview2"> Your Email: {{user.email}}</p>
-        <p id="preview3"> Mobile No.: {{user.mobile}}</p>
-        <p id="preview4"> Password: {{user.password}}</p>
+        <h3 id=data>D A T A</h3>
+        <p class="preview"> <label class="label">Your Name:</label> {{user.name}}    </p>
+        <p class="preview"> <label class="label">Your Email:</label> {{user.email}}   </p>
+        <p class="preview"> <label class="label">Mobile No.:</label> {{user.mobile}}  </p>
+        <p class="preview"> <label style="padding-right:3.9%" class="label">Hobby  :</label> {{user.checkedNames}}  </p>
+        <p class="preview"> <label style="padding-right:3.5%" class="label">Gender  :</label> {{user.picked}}  </p>
+        <p class="preview"> <label style="padding-right:2.6%" class="label">Password  :</label> {{user.password}}</p>
+    </div>
     </div>
 </div>
 </template>
@@ -44,11 +76,16 @@
 export default {
   data () {
     return {
+      myStyle: {
+        backgroundColor: '#EAECEE'
+      },
       user: {
         name: '',
         email: '',
         mobile: '',
-        password: ''
+        password: '',
+        checkedNames: [],
+        picked: ''
         // focused: false
         // attemptSubmit: false
       }
@@ -61,7 +98,8 @@ export default {
     },
 
     emailIsValid () {
-      return !!this.user.email
+      var reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+      return reg.test(this.user.email)
     },
 
     mobileIsValid () {
@@ -69,7 +107,7 @@ export default {
     },
 
     passwordIsValid () {
-      return !!this.user.password
+      return this.user.password.length > 6
     },
 
     formIsValid () {
@@ -91,6 +129,8 @@ export default {
       console.log('email :', this.user.email)
       console.log('mobile :', this.user.mobile)
       console.log('password :', this.user.password)
+      console.log('hobby :', this.user.checkedNames)
+      console.log('gender :', this.user.picked)
     }
   }
 }
@@ -108,6 +148,7 @@ export default {
 
 .label{
   padding-right: 2%;
+  font-weight: bold;
 }
 
 .input{
@@ -145,4 +186,67 @@ input:hover, input:active {
   font-family: monospace;
   border: 2px solid black;
 }
+
+.preview {
+  font-family: fantasy;
+  font-size: 20px;
+  padding-left: 2%;
+  margin:1%;
+}
+
+#data {
+  padding-left:8%;
+  color: rgb(103, 121, 167)
+}
+
+#hobby {
+  /* padding-top:10px; */
+  padding-right: 1.2%;
+  font-size: 20px;
+}
+
+#checkbox {
+  width: 1.5em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+  /* outline: .5px solid black; */
+}
+
+#checkbox:checked {
+  background-color: rgb(103, 121, 167);
+}
+
+input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: #d1d3d1;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -2px;
+        left: -1px;
+        position: relative;
+        background-color: rgb(103, 121, 167);
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        /* border: 2px solid white; */
+    }
 </style>
